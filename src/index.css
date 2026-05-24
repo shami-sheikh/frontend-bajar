@@ -1,0 +1,33 @@
+@import "tailwindcss";
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Inter", sans-serif; /* Sab jagah Inter */
+background-color: whitesmoke;
+}
+#footer{
+  background-color: #f8f8f8;
+  
+}
+.product-title,
+.hero-heading {
+  font-family: "Playfair Display", serif; /* Headings pe Playfair */
+}
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}
+
+p,
+button,
+input {
+  font-family: "Inter", sans-serif;
+}
+* {
+  font-family: "Inter", sans-serif;
+}
