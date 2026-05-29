@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../utils/api";
 
 function UserModals({ closeusermodals, usermodals, useradmin,getAlluserdata }) {
   const [formData, setformData] = useState({
@@ -31,7 +32,7 @@ const {AuthorizationToken}=useAuth()
 // fetching update user data from backend
 const Update = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/auth/user/admin/update/${useradmin._id}`, {
+    const response = await fetch(`${API_BASE_URL}/auth/user/admin/update/${useradmin._id}`, {
       method: "PUT",
       headers: {
         Authorization: AuthorizationToken,

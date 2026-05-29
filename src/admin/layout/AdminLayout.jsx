@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../utils/api";
 import toast from "react-hot-toast";
 import { 
   LayoutDashboard, 
@@ -44,7 +45,7 @@ function AdminLayout() {
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const userRes = await fetch("http://localhost:5000/auth/user/admin", {
+        const userRes = await fetch(`${API_BASE_URL}/auth/user/admin`, {
           method: "GET",
           headers: { Authorization: AuthorizationToken }
         });
@@ -53,7 +54,7 @@ function AdminLayout() {
           setUserCount(userData.users?.length || 0);
         }
 
-        const contactRes = await fetch("http://localhost:5000/auth/user/admincontact", {
+        const contactRes = await fetch(`${API_BASE_URL}/auth/user/admincontact`, {
           method: "GET",
           headers: { Authorization: AuthorizationToken }
         });

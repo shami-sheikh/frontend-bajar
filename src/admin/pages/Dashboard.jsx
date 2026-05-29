@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useAuth } from "../../context/AuthContext"
+import { API_BASE_URL } from "../../utils/api"
 import toast from "react-hot-toast"
 
 function Dashboard() {
@@ -8,7 +9,7 @@ function Dashboard() {
 
   const getProducts = async () => {  // ✅ no id param
   try {
-    const response = await fetch("http://localhost:5000/auth/user/admin/products", {  // ✅ correct URL
+    const response = await fetch(`${API_BASE_URL}/auth/user/admin/products`, {  // ✅ correct URL
       method: "GET",
       headers: { Authorization: AuthorizationToken }
     })

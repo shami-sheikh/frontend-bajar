@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../utils/api";
 import toast from "react-hot-toast";
 import AddProducts from "../models/AddProducts";
 import Updateproductmodals from "../models/Updateproductmodals";
@@ -100,7 +101,7 @@ function Adminproducts() {
   const getAllProducts = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/auth/user/admin/products",
+        `${API_BASE_URL}/auth/user/admin/products`,
         { method: "GET", headers: { Authorization: AuthorizationToken } },
       );
       const data = await response.json();
@@ -120,7 +121,7 @@ function Adminproducts() {
   const delteAllproducts = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/auth/user/admin/deleteproduct/${id}`,
+        `${API_BASE_URL}/auth/user/admin/deleteproduct/${id}`,
         {
           method: "DELETE",
           headers: { Authorization: AuthorizationToken },

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { API_BASE_URL } from "../utils/api";
 const Authcontext = createContext();
 export const AuthProvider = ({ children }) => {
   const [userName, setUserName] = useState(
@@ -27,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   // to get authentication from backedn user
   const userAuthentication = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/auth/api/user`, {
+      const response = await fetch(`${API_BASE_URL}/auth/api/user`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`, // ← sends token
@@ -44,7 +45,7 @@ export const AuthProvider = ({ children }) => {
   //  to get all the service backend data
   const getservice = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/auth/data/services`, {
+      const response = await fetch(`${API_BASE_URL}/auth/data/services`, {
         method: "GET",
       });
       const data = await response.json();

@@ -292,7 +292,7 @@ function Users() {
 
   const getAlluserdata = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/auth/user/admin`, {
+      const response = await fetch(`${API_BASE_URL}/auth/user/admin`, {
         method: "GET",
         headers: { Authorization: AuthorizationToken },
       });
@@ -312,7 +312,7 @@ function Users() {
   const deleteuser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/auth/user/admin/delete/${id}`,
+        `${API_BASE_URL}/auth/user/admin/delete/${id}`,
         {
           method: "DELETE",
           headers: { Authorization: AuthorizationToken },

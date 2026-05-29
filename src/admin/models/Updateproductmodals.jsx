@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../utils/api";
 import toast from "react-hot-toast";
 
 function Updateproductmodals({ closeupdate, openupdatemodels, selectedproduct, getAllProducts }) {
@@ -62,7 +63,7 @@ function Updateproductmodals({ closeupdate, openupdatemodels, selectedproduct, g
         form.append("image", formdata.imageFile)
 
         response = await fetch(
-          `http://localhost:5000/auth/user/admin/updateproduct/${selectedproduct._id}`,
+          `${API_BASE_URL}/auth/user/admin/updateproduct/${selectedproduct._id}`,
           {
             method: "PUT",
             headers: { Authorization: AuthorizationToken },
@@ -72,7 +73,7 @@ function Updateproductmodals({ closeupdate, openupdatemodels, selectedproduct, g
       } else {
         // ✅ URL or no image change — use JSON
         response = await fetch(
-          `http://localhost:5000/auth/user/admin/updateproduct/${selectedproduct._id}`,
+          `${API_BASE_URL}/auth/user/admin/updateproduct/${selectedproduct._id}`,
           {
             method: "PUT",
             headers: {

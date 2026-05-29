@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../utils/api";
 import toast from "react-hot-toast";
 
 function Addusermodals({ getAlluserdata, addmodals, closeaddmodals }) {
@@ -19,7 +20,7 @@ function Addusermodals({ getAlluserdata, addmodals, closeaddmodals }) {
 
   const adduser = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/auth/user/admin/add`, {
+      const response = await fetch(`${API_BASE_URL}/auth/user/admin/add`, {
         method: "POST",
         headers: {
           Authorization: AuthorizationToken,

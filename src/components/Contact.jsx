@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext'
+import { API_BASE_URL } from '../utils/api'
 
 function Contact() {
   const {AuthorizationToken,user}=useAuth()
@@ -19,7 +20,7 @@ function Contact() {
     try {
       const headers = { "Content-Type": "application/json" };
       if (AuthorizationToken) headers.Authorization = AuthorizationToken;
-      const response = await fetch("http://localhost:5000/auth/form/contact", {
+      const response = await fetch(`${API_BASE_URL}/auth/form/contact`, {
         method: "POST",
         headers,
         body: JSON.stringify(formdata),

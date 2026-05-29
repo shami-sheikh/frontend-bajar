@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import toast from 'react-hot-toast'
 import { useAuth } from '../../context/AuthContext'
+import { API_BASE_URL } from '../../utils/api'
 
 function Contacts() {
   const [contactdata, setcontactdata] = useState([])
@@ -8,7 +9,7 @@ function Contacts() {
 
   const getallcontactdata = async () => {
     try {
-      const response = await fetch("http://localhost:5000/auth/user/admincontact", {  // ✅ http
+      const response = await fetch(`${API_BASE_URL}/auth/user/admincontact`, {  // ✅ http
         method: "GET",
         headers: { Authorization: AuthorizationToken }
       })
@@ -23,7 +24,7 @@ function Contacts() {
 
   const deletecontact = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/auth/user/admin/deletecontact/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/auth/user/admin/deletecontact/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: AuthorizationToken,

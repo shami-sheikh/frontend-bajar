@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../utils/api";
 import toast from "react-hot-toast";
 
 const AddProducts = ({ openProductModels, closeModals }) => {
@@ -64,7 +65,7 @@ const AddProducts = ({ openProductModels, closeModals }) => {
         form.append("image", formdata.image);
 
         response = await fetch(
-          "http://localhost:5000/auth/user/admin/getservice",
+          `${API_BASE_URL}/auth/user/admin/getservice`,
           {
             method: "POST",
             headers: { Authorization: AuthorizationToken },
@@ -74,7 +75,7 @@ const AddProducts = ({ openProductModels, closeModals }) => {
       } else {
         // ✅ URL — use JSON
         response = await fetch(
-          "http://localhost:5000/auth/user/admin/getservice/url",
+          `${API_BASE_URL}/auth/user/admin/getservice/url`,
           {
             method: "POST",
             headers: {

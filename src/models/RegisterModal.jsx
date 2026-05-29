@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { FiX } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { API_BASE_URL } from "../utils/api";
 
 function RegisterModal({ RegisterModals, closeRegisterModels, openModals }) {
   const [loading, setloading] = useState(false);
@@ -31,7 +32,7 @@ function RegisterModal({ RegisterModals, closeRegisterModels, openModals }) {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/auth/api/register`, {
+      const response = await fetch(`${API_BASE_URL}/auth/api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
